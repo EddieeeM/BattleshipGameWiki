@@ -50,7 +50,7 @@ public static class GameResources
 		NewSound("Error", "error.wav");
 		NewSound("Hit", "hit.wav");
 		NewSound("Sink", "sink.wav");
-		NewSound("Siren", "siren.wav");
+		NewSound("Siren", "siren.wav");    // bug 1, missing file
 		NewSound("Miss", "watershot.wav");
 		NewSound("Winner", "winner.wav");
 		NewSound("Lose", "lose.wav");
@@ -150,7 +150,7 @@ public static class GameResources
 		LoadMusic();
 		SwinGame.Delay(100);
 
-		SwinGame.Delay(100);
+        // Fix Me 1, completed
 		ShowMessage("Game loaded...", 5);
 		SwinGame.Delay(100);
 		EndLoadingScreen(width, height);
@@ -212,7 +212,7 @@ public static class GameResources
 
 		fullW = 260 * number / STEPS;
 		SwinGame.DrawBitmap(_LoaderEmpty, BG_X, BG_Y);
-		SwinGame.DrawBitmapPart(_LoaderFull, 0, 0, fullW, 66, BG_X, BG_Y);
+		SwinGame.DrawBitmapPart(_LoaderEmpty, 0, 0, fullW, 66, BG_X, BG_Y);  // Fix Me 2, completed
 
 		SwinGame.DrawTextLines(message, Color.White, Color.Transparent, _LoadingFont, FontAlignment.AlignCenter, TX, TY, TW, TH);
 
