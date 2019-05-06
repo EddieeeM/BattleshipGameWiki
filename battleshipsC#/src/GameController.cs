@@ -83,7 +83,7 @@ public static class GameController
 				_ai = new AIHardPlayer(_theGame);
 				break;
 			default:
-				_ai = new AIHardPlayer(_theGame);
+				_ai = new AIEasyPlayer(_theGame);
 				break;
 		}
 
@@ -163,7 +163,7 @@ public static class GameController
 		switch (result.Value) {
 			case ResultOfAttack.Destroyed:
 				PlayHitSequence(result.Row, result.Column, isHuman);
-				Audio.PlaySoundEffect(GameResources.GameSound("Sink"));
+				Audio.PlaySoundEffect(GameResources.GameSound("Explosion"));	// New Explosion sound - Eddie
 
 				break;
 			case ResultOfAttack.GameOver:
@@ -177,7 +177,7 @@ public static class GameController
 
 				if (HumanPlayer.IsDestroyed) {
                     //Audio.PlaySoundEffect(GameResources.GameSound("Lose"));
-                    Audio.PlaySoundEffect(GameResources.GameSound("OhNo"));
+                    Audio.PlaySoundEffect(GameResources.GameSound("OhNo"));		// New Losing sound - Henry
                 } else {
 					Audio.PlaySoundEffect(GameResources.GameSound("Winner"));
 				}
@@ -208,6 +208,8 @@ public static class GameController
 		//deploy the players
 		_theGame.AddDeployedPlayer(_human);
 		_theGame.AddDeployedPlayer(_ai);
+
+		SwinGame.PlayMusic(GameResources.GameMusic("Background2")); //Changes the music played during the Battle Phase - Eddie
 
 		SwitchState(GameState.Discovering);
 	}

@@ -253,7 +253,7 @@ static class UtilityFunctions
 
 	public static void AddExplosion(int row, int col)
 	{
-		AddAnimation(row, col, "Splash");
+		AddAnimation(row, col, "Explosion");		//Placed Explosion Animation from Splash - Eddie
 	}
 
 	public static void AddSplash(int row, int col)
