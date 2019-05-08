@@ -29,6 +29,12 @@ static class DiscoveryController
 		if (SwinGame.MouseClicked(MouseButton.LeftButton)) {
 			DoAttack();
 		}
+
+        if (SwinGame.KeyTyped(KeyCode.vk_m))
+        {
+            Mute();
+            //Reed's Code
+        }
 	}
 
 	/// <summary>
@@ -76,5 +82,17 @@ static class DiscoveryController
 		SwinGame.DrawText(GameController.HumanPlayer.Hits.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, HITS_TOP);
 		SwinGame.DrawText(GameController.HumanPlayer.Missed.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, SPLASH_TOP);
 	}
+
+    public static void Mute()
+    {
+        if (SwinGame.MusicVolume() != 0)
+        {
+            SwinGame.SetMusicVolume(0);
+
+        } else
+        {
+            SwinGame.SetMusicVolume(1);
+        }
+    }
 
 }
